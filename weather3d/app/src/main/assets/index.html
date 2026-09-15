@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+<meta name="theme-color" content="#0b0716" />
+<title>Miguel Sky 3D</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="brand"><div class="logo">M</div><div><b>Miguel Sky 3D</b><small>LIVE WEATHER · OHIO</small></div></div>
+    <button class="ghost" id="refreshBtn">↻ Refresh</button>
+  </div>
+
+  <section class="hero" id="hero">
+    <canvas id="scene" class="scene"></canvas><canvas id="fx" class="fx"></canvas><div class="flash" id="flash"></div>
+    <div class="hero-ui">
+      <div class="cityrow">
+        <button class="citybtn active" data-city="tiffin">Tiffin</button>
+        <button class="citybtn" data-city="sandusky">Sandusky</button>
+      </div>
+      <div class="weather-main">
+        <div class="place"><span class="live"><span class="dot"></span><span id="place">Tiffin, Ohio</span></span></div>
+        <div class="temp" id="temp">--°</div>
+        <div class="cond" id="cond">Loading live weather…</div>
+        <div class="sub" id="updated">Open-Meteo live data</div>
+      </div>
+      <div class="drag-hint">DRAG THE 3D WORLD</div>
+    </div>
+    <div class="loading" id="loading"><div class="loader"><div class="orb"></div><b>BUILDING YOUR 3D SKY</b><small>avatar · city · weather</small></div></div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><small>Feels like</small><strong id="feels">--°</strong><span>apparent</span></div>
+    <div class="stat"><small>Wind</small><strong id="wind">--</strong><span id="windDir">mph</span></div>
+    <div class="stat"><small>Humidity</small><strong id="humid">--%</strong><span id="precip">precip --</span></div>
+  </div>
+
+  <section class="section">
+    <div class="section-head"><b>Next hours</b><span>temperature · rain chance</span></div>
+    <div class="scroll" id="hours"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><b>7-day forecast</b><span>high / low</span></div>
+    <div class="forecast" id="forecast"></div>
+  </section>
+
+  <section class="alert">
+    <div class="alert-top"><div class="siren-icon">🚨</div><div><b id="alertTitle">Checking official alerts…</b><p id="alertText">NWS severe-weather status for the selected city.</p></div></div>
+    <div class="actions">
+      <button class="action primary" id="avatarBtn">✨ Avatar focus</button>
+      <button class="action danger" id="stormBtn">🌪 Storm Lab</button>
+      <button class="action" id="sirenBtn">🔊 Siren test</button>
+      <button class="action" id="resetBtn">◎ Reset 3D</button>
+    </div>
+  </section>
+  <div class="footer">Weather data: Open-Meteo · Alerts: National Weather Service. The siren and Storm Lab are visual/audio demos, not emergency warnings.</div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="core.js"></script>
+<script src="engine.js"></script>
+<script src="scene.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
